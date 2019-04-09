@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/student-grade-command-pattern-java-2019-1-8-2-59-10-727.iml" filepath="$PROJECT_DIR$/student-grade-command-pattern-java-2019-1-8-2-59-10-727.iml" group="student-grade-command-pattern-java-2019-1-8-2-59-10-727" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/student-grade-command-pattern-java-2019-1-8-2-59-10-727_main.iml" filepath="$PROJECT_DIR$/.idea/modules/student-grade-command-pattern-java-2019-1-8-2-59-10-727_main.iml" group="student-grade-command-pattern-java-2019-1-8-2-59-10-727" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/student-grade-command-pattern-java-2019-1-8-2-59-10-727_test.iml" filepath="$PROJECT_DIR$/.idea/modules/student-grade-command-pattern-java-2019-1-8-2-59-10-727_test.iml" group="student-grade-command-pattern-java-2019-1-8-2-59-10-727" />
+    </modules>
+  </component>
+</project>

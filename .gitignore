@@ -8,3 +8,4 @@ student-grade-command-pattern-java
 *.iml
 *.ipr
 *.iws
+.idea/
