@@ -1,15 +1,10 @@
 package com.tw.repository.memoryCacheRepository.dataObject;
 
-import com.tw.domain.entities.Student;
+import com.tw.domain.students.Student;
 
 public class StudentDataObject {
     private String id;
     private String name;
-
-    public StudentDataObject(String id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 
     public StudentDataObject(Student student) {
         id = student.getId();
@@ -20,7 +15,7 @@ public class StudentDataObject {
         return id;
     }
 
-    public Student ToEntity() {
+    public Student toEntity() {
         return new Student(id, name);
     }
 }

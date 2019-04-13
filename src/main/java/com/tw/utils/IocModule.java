@@ -3,8 +3,8 @@ package com.tw.utils;
 import com.google.inject.AbstractModule;
 import com.tw.repository.memoryCacheRepository.ScoreMemoryCacheRepository;
 import com.tw.repository.memoryCacheRepository.StudentMemoryCacheRepository;
-import com.tw.domain.interfaces.ScoreRepository;
-import com.tw.domain.interfaces.StudentRepository;
+import com.tw.domain.transcripts.ScoreRepository;
+import com.tw.domain.students.StudentRepository;
 
 public class IocModule extends AbstractModule {
     @Override

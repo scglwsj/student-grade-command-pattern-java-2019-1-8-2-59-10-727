@@ -16,19 +16,19 @@ public class MemoryCache {
         scoreDataObjects = new ArrayList<>();
     }
 
-    public void addStudent(StudentDataObject studentDataObject) {
+    void addStudent(StudentDataObject studentDataObject) {
         studentDataObjects.add(studentDataObject);
     }
 
-    public void addScore(ScoreDataObject scoreDataObject) {
+    void addScore(ScoreDataObject scoreDataObject) {
         scoreDataObjects.add(scoreDataObject);
     }
 
-    public StudentDataObject getStudent(String id) {
-        return studentDataObjects.stream().filter(studentDataObject -> studentDataObject.getId().equals(id)).findFirst().get();
+    StudentDataObject getStudent(String id) {
+        return studentDataObjects.stream().filter(studentDataObject -> studentDataObject.getId().equals(id)).findFirst().orElseGet(null);
     }
 
-    public List<ScoreDataObject> getScores(List<String> ids) {
+    List<ScoreDataObject> getScores(List<String> ids) {
         return scoreDataObjects.stream().filter(scoreDataObject ->
                 ids.contains(scoreDataObject.getStudentId())).collect(Collectors.toList());
     }

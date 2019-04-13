@@ -1,7 +1,7 @@
 package com.tw.repository.memoryCacheRepository;
 
-import com.tw.domain.entities.Student;
-import com.tw.domain.interfaces.StudentRepository;
+import com.tw.domain.students.Student;
+import com.tw.domain.students.StudentRepository;
 import com.tw.repository.memoryCacheRepository.dataObject.StudentDataObject;
 
 import javax.inject.Inject;
@@ -21,6 +21,6 @@ public class StudentMemoryCacheRepository implements StudentRepository {
 
     @Override
     public Student findById(String id) {
-        return memoryCache.getStudent(id).ToEntity();
+        return memoryCache.getStudent(id).toEntity();
     }
 }

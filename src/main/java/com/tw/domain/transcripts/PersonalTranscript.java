@@ -1,24 +1,21 @@
-package com.tw.domain.entities;
+package com.tw.domain.transcripts;
+
+import com.tw.domain.students.Student;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class PersonalTranscript {
-    private String studentId;
     private Student student;
     private Map<String, Integer> scores;
 
     public PersonalTranscript(String studentId) {
-        this.studentId=studentId;
-        scores=new HashMap<>();
+        this.student = new Student(studentId);
+        scores = new HashMap<>();
     }
 
     public String getStudentId() {
-        return studentId;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
+        return student.getId();
     }
 
     public Double getAverageScore() {
@@ -36,4 +33,9 @@ public class PersonalTranscript {
     public Map<String, Integer> getScores() {
         return scores;
     }
+
+    void updateStudent(Student student) {
+        this.student = student;
+    }
+
 }

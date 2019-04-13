@@ -1,9 +1,7 @@
-package com.tw.domain.services;
+package com.tw.domain.students;
 
 
-import com.tw.domain.entities.Student;
-import com.tw.domain.interfaces.ScoreRepository;
-import com.tw.domain.interfaces.StudentRepository;
+import com.tw.domain.transcripts.ScoreRepository;
 
 import javax.inject.Inject;
 import java.util.Map;

@@ -43,8 +43,9 @@ public class App {
                     System.out.println();
                     System.out.println("请输入学生信息（格式：姓名, 学号, 学科: 成绩, ...），按回车提交：");
                     try {
-                        studentRouter.create(sc.nextLine());
-                    } catch(CreateStudentInputException e)  {
+                        String studentName = studentRouter.create(sc.nextLine());
+                        System.out.println("学生" + studentName + "的成绩被添加");
+                    } catch (CreateStudentInputException e) {
                         System.out.println();
                         System.out.println("请按正确的格式输入（格式：姓名, 学号, 学科: 成绩, ...）：");
                     }

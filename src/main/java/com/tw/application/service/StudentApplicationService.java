@@ -1,20 +1,29 @@
 package com.tw.application.service;
 
-import com.tw.domain.entities.Student;
-import com.tw.domain.services.StudentService;
+import com.tw.domain.students.Student;
+import com.tw.domain.transcripts.Transcript;
+import com.tw.domain.transcripts.ScoreService;
+import com.tw.domain.students.StudentService;
 
 import javax.inject.Inject;
+import java.util.List;
 import java.util.Map;
 
 public class StudentApplicationService {
+    private ScoreService scoreService;
     private StudentService studentService;
 
     @Inject
-    public StudentApplicationService(StudentService studentService) {
+    public StudentApplicationService(ScoreService scoreService, StudentService studentService) {
+        this.scoreService = scoreService;
         this.studentService = studentService;
     }
 
     public void create(Student student, Map<String, Integer> scoreList) {
         studentService.create(student, scoreList);
+    }
+
+    public Transcript search(List<String> ids) {
+        return scoreService.search(ids);
     }
 }

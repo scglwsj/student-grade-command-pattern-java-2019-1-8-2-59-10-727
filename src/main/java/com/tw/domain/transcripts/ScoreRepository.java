@@ -1,6 +1,4 @@
-package com.tw.domain.interfaces;
-
-import com.tw.domain.entities.PersonalTranscript;
+package com.tw.domain.transcripts;
 
 import java.util.List;
 

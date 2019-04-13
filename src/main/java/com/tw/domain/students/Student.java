@@ -1,4 +1,4 @@
-package com.tw.domain.entities;
+package com.tw.domain.students;
 
 public class Student {
     private String id;
@@ -7,6 +7,10 @@ public class Student {
     public Student(String id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Student(String id){
+        this.id = id;
     }
 
     public String getId() {

@@ -1,7 +1,7 @@
 package com.tw.repository.memoryCacheRepository;
 
-import com.tw.domain.entities.PersonalTranscript;
-import com.tw.domain.interfaces.ScoreRepository;
+import com.tw.domain.transcripts.PersonalTranscript;
+import com.tw.domain.transcripts.ScoreRepository;
 import com.tw.repository.memoryCacheRepository.dataObject.ScoreDataObject;
 
 import javax.inject.Inject;

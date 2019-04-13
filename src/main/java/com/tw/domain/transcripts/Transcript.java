@@ -1,4 +1,4 @@
-package com.tw.domain.entities;
+package com.tw.domain.transcripts;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,8 +6,7 @@ import java.util.stream.Collectors;
 public class Transcript {
     private List<PersonalTranscript> personalTranscripts;
 
-
-    public Transcript(List<PersonalTranscript> personalTranscripts) {
+    Transcript(List<PersonalTranscript> personalTranscripts) {
         this.personalTranscripts = personalTranscripts;
     }
 

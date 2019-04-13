@@ -1,6 +1,4 @@
-package com.tw.domain.interfaces;
-
-import com.tw.domain.entities.Student;
+package com.tw.domain.students;
 
 public interface StudentRepository {
     void create(Student student);
