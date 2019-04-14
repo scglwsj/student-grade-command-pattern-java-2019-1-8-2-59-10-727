@@ -17,9 +17,8 @@ public class ScoreService {
 
     public Transcript search(List<String> ids) {
         List<PersonalTranscript> personalTranscripts = scoreRepository.search(ids);
-        for (PersonalTranscript personalTranscript : personalTranscripts) {
-            personalTranscript.updateStudent(studentRepository.findById(personalTranscript.getStudentId()));
-        }
+        personalTranscripts.forEach(personalTranscript ->
+                personalTranscript.updateStudent(studentRepository.findById(personalTranscript.getStudentId())));
         return new Transcript(personalTranscripts);
     }
 }

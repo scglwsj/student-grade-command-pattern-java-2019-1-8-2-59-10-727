@@ -2,6 +2,8 @@ package com.tw;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.tw.domain.transcripts.Transcript;
+import com.tw.router.viewObject.SearchScoreResponse;
 import com.tw.utils.exception.CreateStudentInputException;
 import com.tw.router.ScoreRouter;
 import com.tw.router.StudentRouter;
@@ -53,7 +55,8 @@ public class App {
                 case "2":
                     System.out.println();
                     System.out.println("请输入要打印的学生的学号（格式： 学号, 学号,...），按回车提交：");
-                    scoreRouter.search(sc.nextLine());
+                    Transcript transcript = scoreRouter.search(sc.nextLine());
+                    printTranscript(transcript);
                     break;
                 case "3":
                     return;
@@ -63,5 +66,18 @@ public class App {
                     break;
             }
         }
+    }
+
+    private static void printTranscript(Transcript transcript) {
+        SearchScoreResponse searchScoreResponse = new SearchScoreResponse(transcript);
+
+        System.out.println();
+        System.out.println("成绩单");
+        System.out.println("姓名|数学|语文|英语|编程|平均分|总分");
+        System.out.println("========================");
+        searchScoreResponse.getPersonalScores().forEach(System.out::println);
+        System.out.println("========================");
+        System.out.println("全班总分平均数：" + searchScoreResponse.getAverageScore());
+        System.out.println("全班总分中位数：" + searchScoreResponse.getMedianScore());
     }
 }
