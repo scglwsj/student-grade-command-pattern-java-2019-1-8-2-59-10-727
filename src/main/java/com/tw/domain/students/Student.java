@@ -1,20 +1,20 @@
 package com.tw.domain.students;
 
 public class Student {
-    private String id;
+    private StudentId id;
     private String name;
 
-    public Student(String id, String name) {
+    public Student(StudentId id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Student(String id){
+    public Student(StudentId id) {
         this.id = id;
     }
 
     public String getId() {
-        return id;
+        return id.toString();
     }
 
     public String getName() {

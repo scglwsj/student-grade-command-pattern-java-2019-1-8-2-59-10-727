@@ -19,11 +19,11 @@ public class StudentApplicationService {
         this.studentService = studentService;
     }
 
-    public void create(Student student, Map<String, Integer> scoreList) {
+    public void createStudent(Student student, Map<String, Integer> scoreList) {
         studentService.create(student, scoreList);
     }
 
-    public Transcript search(List<String> ids) {
+    public Transcript searchTranscripts(List<String> ids) {
         return scoreService.search(ids);
     }
 }

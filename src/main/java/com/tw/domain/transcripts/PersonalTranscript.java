@@ -1,6 +1,7 @@
 package com.tw.domain.transcripts;
 
 import com.tw.domain.students.Student;
+import com.tw.domain.students.StudentId;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +11,7 @@ public class PersonalTranscript {
     private Map<String, Integer> scores;
 
     public PersonalTranscript(String studentId) {
-        this.student = new Student(studentId);
+        this.student = new Student(new StudentId(studentId));
         scores = new HashMap<>();
     }
 

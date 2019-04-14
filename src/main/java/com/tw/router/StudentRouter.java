@@ -20,7 +20,7 @@ public class StudentRouter {
 
     public String create(String in) throws CreateStudentInputException {
         CreateStudentRequest request = requestConstructor(in);
-        studentApplicationService.create(request.getStudentModel(), request.getScores());
+        studentApplicationService.createStudent(request.getStudentModel(), request.getScores());
         return request.getStudentModel().getName();
     }
 
