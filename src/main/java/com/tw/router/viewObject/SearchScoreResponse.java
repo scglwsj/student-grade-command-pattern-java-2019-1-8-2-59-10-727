@@ -1,5 +1,6 @@
 package com.tw.router.viewObject;
 
+import com.tw.domain.transcripts.PersonalTranscript;
 import com.tw.domain.transcripts.Transcript;
 
 import java.util.List;
@@ -13,17 +14,7 @@ public class SearchScoreResponse {
     public SearchScoreResponse(Transcript transcript) {
         this.averageScore = String.format("%.1f", transcript.getAverageScore());
         this.medianScore = transcript.getMedianScore().toString();
-        this.personalScores = transcript.getPersonalTranscripts()
-                .stream()
-                .map(personalTranscript ->
-                        personalTranscript.getStudent().getName()
-                                + "|" + personalTranscript.getScores().get("Math")
-                                + "|" + personalTranscript.getScores().get("Chinese")
-                                + "|" + personalTranscript.getScores().get("English")
-                                + "|" + personalTranscript.getScores().get("Program")
-                                + "|" + personalTranscript.getAverageScore()
-                                + "|" + personalTranscript.getTotalScore()
-                ).collect(Collectors.toList());
+        this.personalScores = getPersonalScores(transcript.getPersonalTranscripts());
     }
 
     public String getAverageScore() {
@@ -36,5 +27,17 @@ public class SearchScoreResponse {
 
     public List<String> getPersonalScores() {
         return personalScores;
+    }
+
+    private List<String> getPersonalScores(List<PersonalTranscript> transcripts) {
+        return transcripts.stream()
+                .map(personalTranscript -> personalTranscript.getStudent().getName()
+                        + "|" + personalTranscript.getScores().get("Math")
+                        + "|" + personalTranscript.getScores().get("Chinese")
+                        + "|" + personalTranscript.getScores().get("English")
+                        + "|" + personalTranscript.getScores().get("Program")
+                        + "|" + personalTranscript.getAverageScore()
+                        + "|" + personalTranscript.getTotalScore()
+                ).collect(Collectors.toList());
     }
 }

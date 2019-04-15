@@ -1,8 +1,11 @@
 package com.tw.domain.transcripts;
 
-import java.util.List;
+import com.tw.domain.students.StudentId;
+
+import java.util.Map;
 
 public interface ScoreRepository {
-    void create(String studentID, String lesson,Integer score);
-    List<PersonalTranscript> search(List<String> ids);
+    void create(StudentId studentID, String lesson, Integer score);
+
+    Map<String, Integer> search(StudentId studentId);
 }

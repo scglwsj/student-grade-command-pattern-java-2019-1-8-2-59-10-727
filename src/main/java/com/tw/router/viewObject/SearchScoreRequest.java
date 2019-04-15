@@ -1,7 +1,10 @@
 package com.tw.router.viewObject;
 
+import com.tw.domain.students.StudentId;
+
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SearchScoreRequest {
     private List<String> ids;
@@ -11,7 +14,7 @@ public class SearchScoreRequest {
         ids = Arrays.asList(strings);
     }
 
-    public List<String> getIds() {
-        return ids;
+    public List<StudentId> getStudentIds() {
+        return ids.stream().map(StudentId::new).collect(Collectors.toList());
     }
 }

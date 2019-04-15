@@ -1,12 +1,12 @@
 package com.tw.repository.memoryCacheRepository;
 
-import com.tw.domain.transcripts.PersonalTranscript;
+import com.tw.domain.students.StudentId;
 import com.tw.domain.transcripts.ScoreRepository;
 import com.tw.repository.memoryCacheRepository.dataObject.ScoreDataObject;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ScoreMemoryCacheRepository implements ScoreRepository {
     private MemoryCache memoryCache;
@@ -17,28 +17,15 @@ public class ScoreMemoryCacheRepository implements ScoreRepository {
     }
 
     @Override
-    public void create(String studentID, String lesson,Integer score) {
-        memoryCache.addScore(new ScoreDataObject(studentID, lesson, score));
+    public void create(StudentId studentID, String lesson, Integer score) {
+        memoryCache.addScore(new ScoreDataObject(studentID.toString(), lesson, score));
     }
 
     @Override
-    public List<PersonalTranscript> search(List<String> ids) {
-        ArrayList<PersonalTranscript> personalTranscripts = new ArrayList<>();
-
-        memoryCache.getScores(ids).forEach(scoreDataObject -> {
-            PersonalTranscript personalTranscript = personalTranscripts
-                    .stream()
-                    .filter(pt ->
-                            pt.getStudentId().equals(scoreDataObject.getStudentId()))
-                    .findFirst()
-                    .orElseGet(() -> {
-                        PersonalTranscript pt = new PersonalTranscript(scoreDataObject.getStudentId());
-                        personalTranscripts.add(pt);
-                        return pt;
-                    });
-            personalTranscript.getScores().put(scoreDataObject.getLesson(),scoreDataObject.getScore());
-        });
-
-        return personalTranscripts;
+    public Map<String, Integer> search(StudentId id) {
+        return  memoryCache.getScore(id.toString()).stream()
+                .collect(Collectors.toMap(
+                ScoreDataObject::getLesson, ScoreDataObject::getScore,
+                (oldValue, newValue) -> newValue));
     }
 }

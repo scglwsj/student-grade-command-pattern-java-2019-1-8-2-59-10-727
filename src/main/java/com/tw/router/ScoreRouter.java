@@ -18,7 +18,7 @@ public class ScoreRouter {
 
     public SearchScoreResponse search(String in) {
         SearchScoreRequest request = new SearchScoreRequest(in);
-        Transcript transcript = studentApplicationService.searchTranscripts(request.getIds());
+        Transcript transcript = studentApplicationService.getTranscript(request.getStudentIds());
         return new SearchScoreResponse(transcript);
     }
 }

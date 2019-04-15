@@ -25,11 +25,16 @@ public class MemoryCache {
     }
 
     StudentDataObject getStudent(String id) {
-        return studentDataObjects.stream().filter(studentDataObject -> studentDataObject.getId().equals(id)).findFirst().orElseGet(null);
+        return studentDataObjects.stream()
+                .filter(studentDataObject -> studentDataObject.getId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 
-    List<ScoreDataObject> getScores(List<String> ids) {
-        return scoreDataObjects.stream().filter(scoreDataObject ->
-                ids.contains(scoreDataObject.getStudentId())).collect(Collectors.toList());
+    List<ScoreDataObject>  getScore(String studentId) {
+        return scoreDataObjects.stream()
+                .filter(scoreDataObject -> scoreDataObject.getStudentId().equals(studentId))
+                .collect(Collectors.toList());
+
     }
 }

@@ -1,6 +1,7 @@
 package com.tw.application.service;
 
 import com.tw.domain.students.Student;
+import com.tw.domain.students.StudentId;
 import com.tw.domain.transcripts.Transcript;
 import com.tw.domain.transcripts.ScoreService;
 import com.tw.domain.students.StudentService;
@@ -23,7 +24,7 @@ public class StudentApplicationService {
         studentService.create(student, scoreList);
     }
 
-    public Transcript searchTranscripts(List<String> ids) {
-        return scoreService.search(ids);
+    public Transcript getTranscript(List<StudentId> studentIds) {
+        return scoreService.search(studentIds);
     }
 }

@@ -32,7 +32,12 @@ public class StudentRouter {
 
         String name = strings[0];
         String id = strings[1];
+        Map<String, Integer> scores = getScores(strings);
 
+        return new CreateStudentRequest(id, name, scores);
+    }
+
+    private Map<String, Integer> getScores(String[] strings) throws CreateStudentInputException {
         Map<String, Integer> scores = Arrays.stream(strings)
                 .map(string -> string.split(":"))
                 .filter(lessenAndScore ->
@@ -47,7 +52,6 @@ public class StudentRouter {
         if (scores.size() != 4) {
             throw new CreateStudentInputException();
         }
-
-        return new CreateStudentRequest(id, name, scores);
+        return scores;
     }
 }

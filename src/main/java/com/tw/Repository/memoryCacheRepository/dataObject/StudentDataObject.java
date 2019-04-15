@@ -8,7 +8,7 @@ public class StudentDataObject {
     private String name;
 
     public StudentDataObject(Student student) {
-        id = student.getId();
+        id = student.getId().toString();
         name = student.getName();
     }
 
